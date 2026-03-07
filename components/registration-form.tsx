@@ -102,7 +102,7 @@ export function RegistrationForm() {
         <Input
           id="email"
           type="email"
-          placeholder="jean@example.com"
+          placeholder="etiennemetoevi82@gmail.com"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           required
@@ -118,7 +118,7 @@ export function RegistrationForm() {
         <Input
           id="phone"
           type="tel"
-          placeholder="+229 90 00 00 00"
+          placeholder="+229 015941467"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           disabled={isDisabled}
@@ -149,7 +149,7 @@ export function RegistrationForm() {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="motivation" className="text-foreground">
-          Qu’est-ce qui vous motive à rejoindre ?
+          Qu’est-ce qui vous motive à suivre cette formation ?
         </Label>
         <Textarea
           id="motivation"

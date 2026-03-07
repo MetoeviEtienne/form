@@ -4,7 +4,7 @@ import { BenefitsSection } from "@/components/benefits-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { RegistrationForm } from "@/components/registration-form"
 import { Footer } from "@/components/footer"
-import InstallAppButton from "@/components/install-app-button"
+import InstallAppPrompt from "@/components/install-app-prompt"
 
 export default function HomePage() {
   return (
@@ -12,14 +12,12 @@ export default function HomePage() {
 
       <Navbar />
 
+      {/* Popup installation PWA */}
+      <InstallAppPrompt />
+
       <main>
 
         <HeroSection />
-
-        {/* bouton installer */}
-        <div className="flex justify-center mt-6">
-          <InstallAppButton />
-        </div>
 
         {/* formulaire */}
         <section
@@ -40,7 +38,9 @@ export default function HomePage() {
               </h2>
 
               <p className="mt-4 text-muted-foreground text-lg">
-                Remplissez le formulaire ci-dessous et nous vous contacterons avec toutes les informations nécessaires pour commencer votre apprentissage.
+                Remplissez le formulaire ci-dessous et nous vous contacterons
+                avec toutes les informations nécessaires pour commencer votre
+                apprentissage.
               </p>
 
             </div>
