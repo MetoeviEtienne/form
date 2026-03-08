@@ -59,7 +59,7 @@ export default function InstallAppPrompt() {
                 </h2>
 
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                    Installez FormEt sur votre appareil pour un accès rapide et une expérience optimisée,.
+                    Installez FormEt sur votre appareil pour un accès rapide et une expérience optimisée.
                 </p>
 
                 <div className="flex justify-center gap-3">
