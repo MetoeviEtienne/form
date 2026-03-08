@@ -55,12 +55,11 @@ export default function InstallAppPrompt() {
                 </div>
 
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                    Installer FormEt
+                    Installer 
                 </h2>
 
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                    Installez l'application pour accéder rapidement à la plateforme,
-                    suivre vos formations et utiliser l'application même hors ligne.
+                    Installez FormEt sur votre appareil pour un accès rapide et une expérience optimisée,.
                 </p>
 
                 <div className="flex justify-center gap-3">
@@ -76,7 +75,7 @@ export default function InstallAppPrompt() {
                         onClick={installApp}
                         className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-green-600 to-emerald-500 text-white font-semibold shadow-md hover:scale-105 hover:shadow-lg transition"
                     >
-                        Installer FormEt
+                        Installer 
                     </button>
 
                 </div>
