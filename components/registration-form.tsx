@@ -184,7 +184,7 @@ export function RegistrationForm() {
           htmlFor="motivation"
           className="absolute left-3 top-3 text-muted-foreground text-sm transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-sm peer-focus:text-primary"
         >
-          Qu’est-ce qui vous motive à suivre cette formation ?
+          Motivation à rejoindre 
         </Label>
       </div>
 
@@ -201,7 +201,7 @@ export function RegistrationForm() {
             Inscription en cours...
           </>
         ) : (
-          "S’inscrire maintenant"
+          "Soumettre"
         )}
       </Button>
     </form>
