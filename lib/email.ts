@@ -8,7 +8,7 @@ function getResend() {
   return new Resend(apiKey)
 }
 
-const FROM_EMAIL = 'CourseHub <onboarding@resend.dev>'
+const FROM_EMAIL = 'FormEt <onboarding@resend.dev>'
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'delivered@resend.dev'
 
 export async function sendConfirmationEmail(name: string, email: string) {
@@ -17,25 +17,38 @@ export async function sendConfirmationEmail(name: string, email: string) {
   await resend.emails.send({
     from: FROM_EMAIL,
     to: email,
-    subject: 'Welcome to CourseHub! Your Registration is Confirmed',
+    subject: 'Bienvenu sur FormEt! Votre inscription est confirmée',
     html: `
-      <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
-        <div style="text-align: center; margin-bottom: 32px;">
-          <h1 style="color: #7C3AED; font-size: 28px; margin: 0;">CourseHub</h1>
+      <div style="font-family: Inter, Arial, sans-serif; background:#020617; padding:40px 0;">
+        <div style="max-width:600px;margin:auto;background:#0F172A;border-radius:14px;padding:40px;color:#F1F5F9">
+
+          <div style="text-align:center;margin-bottom:30px">
+            <h1 style="margin:0;color:#8B5CF6;font-size:30px">CourseHub</h1>
+            <p style="color:#94A3B8;font-size:14px;margin-top:6px">
+              Formulaire d'inscription
+            </p>
+          </div>
+
+          <h2 style="font-size:22px;margin-bottom:12px">
+           Bienvenu, <span style="color:#8B5CF6">${name}</span> 👋
+          </h2>
+
+          <p style="color:#CBD5F5;font-size:15px;line-height:1.7">
+            Votre inscription a été confirmée avec succès.
+                Nous sommes ravis de vous accueillir dans notre communauté d’apprenants.
+              </p>
+
+              <div style="background:#1E293B;padding:22px;border-radius:10px;margin-top:26px">
+                <p style="margin:0;color:#A78BFA;font-weight:600">
+                  🚀 Restez connecté pour découvrir nos prochains cours et toutes les nouveautés.
+                </p>
+          </div>
+
+          <div style="margin-top:35px;text-align:center;color:#64748B;font-size:12px">
+            © ${new Date().getFullYear()} FormEt — Tous droits réservés.
+          </div>
+
         </div>
-        <h2 style="color: #F1F5F9; font-size: 22px;">Welcome aboard, ${name}!</h2>
-        <p style="color: #94A3B8; font-size: 16px; line-height: 1.6;">
-          Thank you for registering with CourseHub. Your registration has been confirmed and we're excited to have you join our community of learners.
-        </p>
-        <p style="color: #94A3B8; font-size: 16px; line-height: 1.6;">
-          We'll be in touch soon with more details about upcoming courses and exclusive learning opportunities.
-        </p>
-        <div style="text-align: center; margin-top: 32px; padding: 20px; background: #1E293B; border-radius: 8px;">
-          <p style="color: #7C3AED; font-weight: 600; margin: 0;">Stay tuned for exciting updates!</p>
-        </div>
-        <p style="color: #64748B; font-size: 12px; margin-top: 32px; text-align: center;">
-          &copy; ${new Date().getFullYear()} CourseHub. All rights reserved.
-        </p>
       </div>
     `,
   })
@@ -53,17 +66,58 @@ export async function sendAdminNotification(
   await resend.emails.send({
     from: FROM_EMAIL,
     to: ADMIN_EMAIL,
-    subject: `New Registration: ${name}`,
+    subject: `Nouvelle Inscription: ${name}`,
     html: `
-      <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
-        <h2 style="color: #7C3AED;">New Course Registration</h2>
-        <table style="width: 100%; border-collapse: collapse;">
-          <tr><td style="padding: 8px; color: #94A3B8;">Name</td><td style="padding: 8px; color: #F1F5F9;">${name}</td></tr>
-          <tr><td style="padding: 8px; color: #94A3B8;">Email</td><td style="padding: 8px; color: #F1F5F9;">${email}</td></tr>
-          <tr><td style="padding: 8px; color: #94A3B8;">Phone</td><td style="padding: 8px; color: #F1F5F9;">${phone || 'N/A'}</td></tr>
-          <tr><td style="padding: 8px; color: #94A3B8;">Level</td><td style="padding: 8px; color: #F1F5F9;">${level || 'N/A'}</td></tr>
-          <tr><td style="padding: 8px; color: #94A3B8;">Motivation</td><td style="padding: 8px; color: #F1F5F9;">${motivation || 'N/A'}</td></tr>
-        </table>
+      <div style="font-family:Inter, Arial, sans-serif;background:#020617;padding:40px 0">
+
+        <div style="max-width:650px;margin:auto;background:#0F172A;padding:40px;border-radius:14px;color:#F1F5F9">
+
+          <div style="text-align:center;margin-bottom:30px">
+            <h1 style="color:#8B5CF6;margin:0">CourseHub</h1>
+            <p style="color:#94A3B8;font-size:14px;margin-top:6px">
+              Nouvelle inscription   
+            </p>
+          </div>
+
+          <h2 style="font-size:22px;margin-bottom:20px">
+            📥 Nouvelle inscription
+          </h2>
+
+          <table style="width:100%;border-collapse:collapse;background:#1E293B;border-radius:10px;overflow:hidden">
+
+            <tr style="border-bottom:1px solid #334155">
+              <td style="padding:14px;color:#94A3B8;font-weight:600;width:35%">Name</td>
+              <td style="padding:14px;color:#F1F5F9">${name}</td>
+            </tr>
+
+            <tr style="border-bottom:1px solid #334155">
+              <td style="padding:14px;color:#94A3B8;font-weight:600">Email</td>
+              <td style="padding:14px;color:#F1F5F9">${email}</td>
+            </tr>
+
+            <tr style="border-bottom:1px solid #334155">
+              <td style="padding:14px;color:#94A3B8;font-weight:600">Phone</td>
+              <td style="padding:14px;color:#F1F5F9">${phone || 'N/A'}</td>
+            </tr>
+
+            <tr style="border-bottom:1px solid #334155">
+              <td style="padding:14px;color:#94A3B8;font-weight:600">Level</td>
+              <td style="padding:14px;color:#F1F5F9">${level || 'N/A'}</td>
+            </tr>
+
+            <tr>
+              <td style="padding:14px;color:#94A3B8;font-weight:600">Motivation</td>
+              <td style="padding:14px;color:#F1F5F9">${motivation || 'N/A'}</td>
+            </tr>
+
+          </table>
+
+          <div style="margin-top:30px;text-align:center;color:#64748B;font-size:12px">
+            FormEt — ${new Date().getFullYear()}
+          </div>
+
+        </div>
+
       </div>
     `,
   })
@@ -87,14 +141,27 @@ export async function sendNewsletter(
           to: email,
           subject,
           html: `
-            <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
-              <div style="text-align: center; margin-bottom: 32px;">
-                <h1 style="color: #7C3AED; font-size: 28px; margin: 0;">CourseHub</h1>
+            <div style="font-family:Inter, Arial, sans-serif;background:#020617;padding:40px 0">
+
+              <div style="max-width:600px;margin:auto;background:#0F172A;border-radius:14px;padding:40px;color:#F1F5F9">
+
+                <div style="text-align:center;margin-bottom:30px">
+                  <h1 style="margin:0;color:#8B5CF6">CourseHub</h1>
+                  <p style="color:#94A3B8;font-size:14px">
+                    Newsletter
+                  </p>
+                </div>
+
+                <div style="background:#1E293B;padding:25px;border-radius:10px;font-size:15px;line-height:1.7;color:#E2E8F0;white-space:pre-wrap">
+                  ${message}
+                </div>
+
+                <div style="margin-top:30px;text-align:center;color:#64748B;font-size:12px">
+                  © ${new Date().getFullYear()} FormEt
+                </div>
+
               </div>
-              <div style="color: #F1F5F9; font-size: 16px; line-height: 1.6; white-space: pre-wrap;">${message}</div>
-              <p style="color: #64748B; font-size: 12px; margin-top: 32px; text-align: center;">
-                &copy; ${new Date().getFullYear()} CourseHub. All rights reserved.
-              </p>
+
             </div>
           `,
         }),
@@ -102,3 +169,110 @@ export async function sendNewsletter(
     )
   }
 }
+
+
+
+// import { Resend } from 'resend'
+
+// function getResend() {
+//   const apiKey = process.env.RESEND_API_KEY
+//   if (!apiKey) {
+//     throw new Error('RESEND_API_KEY environment variable is not set')
+//   }
+//   return new Resend(apiKey)
+// }
+
+// const FROM_EMAIL = 'CourseHub <onboarding@resend.dev>'
+// const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'delivered@resend.dev'
+
+// export async function sendConfirmationEmail(name: string, email: string) {
+//   const resend = getResend()
+
+//   await resend.emails.send({
+//     from: FROM_EMAIL,
+//     to: email,
+//     subject: 'Welcome to CourseHub! Your Registration is Confirmed',
+//     html: `
+//       <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
+//         <div style="text-align: center; margin-bottom: 32px;">
+//           <h1 style="color: #7C3AED; font-size: 28px; margin: 0;">CourseHub</h1>
+//         </div>
+//         <h2 style="color: #F1F5F9; font-size: 22px;">Welcome aboard, ${name}!</h2>
+//         <p style="color: #94A3B8; font-size: 16px; line-height: 1.6;">
+//           Thank you for registering with CourseHub. Your registration has been confirmed and we're excited to have you join our community of learners.
+//         </p>
+//         <p style="color: #94A3B8; font-size: 16px; line-height: 1.6;">
+//           We'll be in touch soon with more details about upcoming courses and exclusive learning opportunities.
+//         </p>
+//         <div style="text-align: center; margin-top: 32px; padding: 20px; background: #1E293B; border-radius: 8px;">
+//           <p style="color: #7C3AED; font-weight: 600; margin: 0;">Stay tuned for exciting updates!</p>
+//         </div>
+//         <p style="color: #64748B; font-size: 12px; margin-top: 32px; text-align: center;">
+//           &copy; ${new Date().getFullYear()} CourseHub. All rights reserved.
+//         </p>
+//       </div>
+//     `,
+//   })
+// }
+
+// export async function sendAdminNotification(
+//   name: string,
+//   email: string,
+//   phone: string | null,
+//   level: string | null,
+//   motivation: string | null,
+// ) {
+//   const resend = getResend()
+
+//   await resend.emails.send({
+//     from: FROM_EMAIL,
+//     to: ADMIN_EMAIL,
+//     subject: `New Registration: ${name}`,
+//     html: `
+//       <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
+//         <h2 style="color: #7C3AED;">New Course Registration</h2>
+//         <table style="width: 100%; border-collapse: collapse;">
+//           <tr><td style="padding: 8px; color: #94A3B8;">Name</td><td style="padding: 8px; color: #F1F5F9;">${name}</td></tr>
+//           <tr><td style="padding: 8px; color: #94A3B8;">Email</td><td style="padding: 8px; color: #F1F5F9;">${email}</td></tr>
+//           <tr><td style="padding: 8px; color: #94A3B8;">Phone</td><td style="padding: 8px; color: #F1F5F9;">${phone || 'N/A'}</td></tr>
+//           <tr><td style="padding: 8px; color: #94A3B8;">Level</td><td style="padding: 8px; color: #F1F5F9;">${level || 'N/A'}</td></tr>
+//           <tr><td style="padding: 8px; color: #94A3B8;">Motivation</td><td style="padding: 8px; color: #F1F5F9;">${motivation || 'N/A'}</td></tr>
+//         </table>
+//       </div>
+//     `,
+//   })
+// }
+
+// export async function sendNewsletter(
+//   emails: string[],
+//   subject: string,
+//   message: string,
+// ) {
+//   const resend = getResend()
+
+//   const batchSize = 50
+//   for (let i = 0; i < emails.length; i += batchSize) {
+//     const batch = emails.slice(i, i + batchSize)
+
+//     await Promise.allSettled(
+//       batch.map((email) =>
+//         resend.emails.send({
+//           from: FROM_EMAIL,
+//           to: email,
+//           subject,
+//           html: `
+//             <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background: #0F172A; color: #F1F5F9; padding: 40px; border-radius: 12px;">
+//               <div style="text-align: center; margin-bottom: 32px;">
+//                 <h1 style="color: #7C3AED; font-size: 28px; margin: 0;">CourseHub</h1>
+//               </div>
+//               <div style="color: #F1F5F9; font-size: 16px; line-height: 1.6; white-space: pre-wrap;">${message}</div>
+//               <p style="color: #64748B; font-size: 12px; margin-top: 32px; text-align: center;">
+//                 &copy; ${new Date().getFullYear()} CourseHub. All rights reserved.
+//               </p>
+//             </div>
+//           `,
+//         }),
+//       ),
+//     )
+//   }
+// }
