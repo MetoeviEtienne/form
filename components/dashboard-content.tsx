@@ -175,9 +175,11 @@ export function DashboardContent() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-xl sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-            <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between h-auto sm:h-16 py-3 sm:py-0 gap-3">
+
+          {/* Logo + titre */}
+          <div className="flex items-center gap-2">
+            <a href="/" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
               <ArrowLeft className="size-5" />
               <span className="sr-only">Retour à l'accueil</span>
             </a>
@@ -185,9 +187,13 @@ export function DashboardContent() {
             <h1 className="text-lg font-bold text-foreground">FormEt</h1>
           </div>
 
-          {/* Durée + lancement session */}
-          <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+          {/* Section contrôle session */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 w-full sm:w-auto">
+
+            <Badge
+              variant="secondary"
+              className="bg-primary/10 text-primary border-primary/20 truncate"
+            >
               {subscribers.length} abonnés
             </Badge>
 
@@ -195,13 +201,15 @@ export function DashboardContent() {
               type="number"
               value={durationMinutes}
               onChange={(e) => setDurationMinutes(Number(e.target.value))}
-              className="h-9 w-24"
+              className="h-9 w-full sm:w-24"
               min={1}
+              placeholder="Durée"
             />
 
             <Button
               onClick={activeSession?.active ? stopSession : launchSession}
               disabled={sessionLoading}
+              className="w-full sm:w-auto"
             >
               {sessionLoading ? (
                 <Loader2 className="size-4 animate-spin" />
@@ -213,14 +221,16 @@ export function DashboardContent() {
             </Button>
 
             {activeSession && activeSession.active && (
-              <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-500 border-emerald-200">
+              <Badge
+                variant="secondary"
+                className="bg-emerald-500/10 text-emerald-500 border-emerald-200 w-full sm:w-auto text-center"
+              >
                 Temps restant: {formatTime(timeLeft)}
               </Badge>
             )}
           </div>
         </div>
       </header>
-
       {/* Stats + Table + Newsletter */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats Row */}

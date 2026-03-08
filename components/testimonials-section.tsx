@@ -116,18 +116,7 @@ export function TestimonialsSection() {
           </a>
 
         </div>
-
-        {/* Pourquoi s’inscrire */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Pourquoi s’inscrire
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tout ce qu’il vous faut pour réussir en ligne<br />
-            La plateforme est conçue pour que les intéressés puissent s’inscrire et suivre des formations en ligne, avec tous les outils nécessaires pour apprendre efficacement et atteindre leurs objectifs.
-          </p>
-        </div>
-
+ 
         {/* Témoignages */}
         <div className="text-center mb-14">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase mb-3">

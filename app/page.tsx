@@ -53,9 +53,9 @@ export default function HomePage() {
 
         </section>
 
-        <div id="benefits">
+        {/* <div id="benefits">
           <BenefitsSection />
-        </div>
+        </div> */}
 
         <TestimonialsSection />
 
