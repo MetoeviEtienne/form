@@ -5,7 +5,7 @@ const testimonials = [
     name: "Alice VLAVONOU",
     role: "Créatrice de contenus IA",
     content:
-      "Grâce aux formations de Mr Etienne, j'ai appris à créer des vidéos IA et mon premier projet m'a permis de générer mes premiers revenus. Je recommande vivement ses cours !",
+      "Grâce aux formations de Mr Etienne, j'ai appris à connaitre ma vraie force et mon premier projet m'a permis de générer mes premiers revenus. Je recommande vivement ses cours !",
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ export function TestimonialsSection() {
       <div className="max-w-6xl mx-auto">
 
         {/* Section Réseaux / Réalisations */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase mb-3">
             Mes réalisations
           </p>
@@ -44,11 +44,11 @@ export function TestimonialsSection() {
             les montages. Découvrez mes contenus et les vidéos que je réalise pour
             mes clients.
           </p>
-        </div>
+        </div> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
 
-          {/* Youtube */}
+          
           <a
             href="https://www.youtube.com/@OrisOne1"
             target="_blank"
@@ -68,10 +68,10 @@ export function TestimonialsSection() {
                 Regardez les vidéos IA que je crée et monte moi-même.
               </p>
             </div>
-          </a>
+          </a> */}
 
           {/* TikTok personnel */}
-          <a
+          {/* <a
             href="https://www.tiktok.com/@oris1247"
             target="_blank"
             rel="noopener noreferrer"
@@ -90,10 +90,10 @@ export function TestimonialsSection() {
                 Découvrez mes vidéos virales créées avec l’IA.
               </p>
             </div>
-          </a>
+          </a> */}
 
           {/* TikTok client */}
-          <a
+          {/* <a
             href="https://www.tiktok.com/@sillyorangecat002"
             target="_blank"
             rel="noopener noreferrer"
@@ -116,7 +116,7 @@ export function TestimonialsSection() {
           </a>
 
         </div>
- 
+  */}
         {/* Témoignages */}
         <div className="text-center mb-14">
           <p className="text-primary font-semibold text-sm tracking-wider uppercase mb-3">
