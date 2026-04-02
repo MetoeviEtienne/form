@@ -167,7 +167,7 @@ export function HeroSection() {
 
                 {/* ⚠️ Places limitées */}
                 <div className="px-6 py-2 rounded-full border border-yellow-400/40 text-yellow-300 text-sm bg-yellow-400/10">
-                  ● Places limitées • 100 maximum
+                  ● Places limitées • 30 maximum
                 </div>
 
                 {/* ⏱ H2 animé */}
@@ -232,9 +232,9 @@ export function HeroSection() {
               <ArrowRight className="size-6" />
             </a>
 
-            <a href="#benefits" className="inline-flex items-center justify-center h-14 px-10 rounded-xl border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors">
+            {/* <a href="#testimonial" className="inline-flex items-center justify-center h-14 px-10 rounded-xl border border-white/30 text-white font-semibold text-lg hover:bg-white/10 transition-colors">
               En savoir plus
-            </a>
+            </a> */}
           </div>
 
         </motion.div>
